@@ -6,7 +6,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:8081',
+        target: 'https://projectgolang-web.onrender.com',
         changeOrigin: true,
         secure: false,
         // rewrite: (path) => path.replace(/^\/api/, ''), // обычно не нужен
