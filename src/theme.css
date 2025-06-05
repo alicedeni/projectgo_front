@@ -1,0 +1,398 @@
+:root {
+    --bg: #f5f7fa;
+    --text: #222;
+    --primary: #1976d2;
+    --primary-dark: #115293;
+    --accent: #f57c00;
+    --danger: #e53935;
+    --card-bg: #fff;
+    --card-shadow: 0 4px 32px rgba(25,118,210,0.10);
+    --modal-bg: #fff;
+    --modal-overlay: rgba(0,0,0,0.45);
+    --border: #e0e0e0;
+    --input-bg: #f9f9f9;
+    --input-border: #bdbdbd;
+}
+#root {
+    margin: 0 auto;
+    width: 80%;
+    padding: 2rem;
+    text-align: center;
+}
+
+[data-theme='dark'] {
+    --bg: #13151a;
+    --text: #f1f1f1;
+    --primary: #90caf9;
+    --primary-dark: #1976d2;
+    --accent: #fb8c00;
+    --danger: #ef5350;
+    --card-bg: #23272f;
+    --card-shadow: 0 4px 32px rgba(25,118,210,0.22);
+    --modal-bg: #23272f;
+    --modal-overlay: rgba(0,0,0,0.85);
+    --border: #23272f;
+    --input-bg: #181b20;
+    --input-border: #333;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    width: 100%;
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: var(--accent);
+}
+
+.header {
+    background: var(--primary-dark);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 48px 22px 32px;
+    box-shadow: 0 2px 16px rgba(25,118,210,0.07);
+    font-size: 1.3rem;
+}
+
+.header nav a {
+    color: #fff;
+    margin-left: 32px;
+    font-weight: 500;
+    opacity: 0.9;
+    transition: opacity 0.2s;
+}
+
+.header nav a.active, .header nav a:hover {
+    opacity: 1;
+    border-bottom: 2px solid var(--accent);
+}
+
+.theme-toggle {
+    background: var(--accent);
+    border: none;
+    color: #fff;
+    padding: 7px 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 24px;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.app-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 16px;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    margin-top: 48px;
+    margin-bottom: 48px;
+}
+
+.hero-img {
+    width: 320px;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(25,118,210,0.18);
+}
+
+.hero-text h1 {
+    font-size: 2.7rem;
+    margin-bottom: 18px;
+    color: var(--primary-dark);
+    font-weight: 800;
+}
+
+.hero-text p {
+    font-size: 1.18rem;
+    margin-bottom: 28px;
+    color: var(--text);
+    opacity: 0.85;
+}
+
+.button-main {
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    padding: 16px 40px;
+    border-radius: 10px;
+    font-size: 1.15rem;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 2px 16px rgba(25,118,210,0.09);
+    transition: background 0.2s, box-shadow 0.2s;
+}
+
+.button-main:hover {
+    background: var(--primary-dark);
+    box-shadow: 0 4px 32px rgba(25,118,210,0.16);
+}
+
+.card {
+    background: var(--card-bg);
+    border-radius: 14px;
+    box-shadow: var(--card-shadow);
+    padding: 28px 32px;
+    margin-bottom: 32px;
+    border: 1px solid var(--border);
+}
+
+.table-container {
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    padding: 18px 22px;
+    margin-bottom: 24px;
+    border: 1px solid var(--border);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card-bg);
+}
+
+th, td {
+    padding: 12px 8px;
+    border-bottom: 1px solid var(--border);
+}
+
+tr:hover {
+    background: var(--input-bg);
+    cursor: pointer;
+}
+
+.status {
+    padding: 2px 10px;
+    border-radius: 10px;
+    font-size: 0.98em;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    background: #e3f2fd;
+    color: #1976d2;
+}
+
+.status.Откликнулся { background: #d2f0ff; color: #1976d2; }
+.status.Новая { background: #dcffdc; color: #388e3c; }
+.status["Планирую откликнуться"] { background: #ffffc8; color: #fbc02d; }
+.status["Тестовое задание"] { background: #ffe6c8; color: #f57c00; }
+.status.Собеседование { background: #f0dcff; color: #8e24aa; }
+.status.Оффер { background: #b4ffb4; color: #388e3c; }
+.status.Отказ { background: #ffc8c8; color: #e53935; }
+.status.Архив { background: #dcdcdc; color: #757575; }
+
+input, textarea, select {
+    background: var(--input-bg);
+    color: var(--text);
+    border: 1px solid var(--input-border);
+    border-radius: 6px;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    width: 200px;
+    box-sizing: border-box;
+    transition: border 0.2s;
+}
+
+input:focus, textarea:focus, select:focus {
+    border: 1.5px solid var(--primary);
+    outline: none;
+}
+
+button {
+    background: var(--button-bg, var(--primary));
+    color: var(--button-text, #fff);
+    border: none;
+    border-radius: 6px;
+    padding: 10px 22px;
+    margin-right: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-weight: 500;
+}
+
+button.danger {
+    background: var(--danger);
+}
+
+button:hover {
+    background: var(--primary-dark);
+}
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--modal-overlay);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal {
+    background: var(--modal-bg);
+    color: var(--text);
+    border-radius: 18px;
+    padding: 40px 36px;
+    min-width: 370px;
+    max-width: 520px;
+    box-shadow: 0 8px 32px rgba(25,118,210,0.18);
+    position: relative;
+    animation: modalIn 0.28s cubic-bezier(.42,0,.58,1.0);
+}
+
+@keyframes modalIn {
+    from { opacity: 0; transform: translateY(40px) scale(0.98);}
+    to   { opacity: 1; transform: translateY(0) scale(1);}
+}
+
+.modal-close {
+    position: absolute;
+    top: 18px;
+    right: 22px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--primary);
+    opacity: 0.8;
+}
+
+.notfound-btn {
+    margin-top: 36px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background: var(--accent);
+    color: #fff;
+    padding: 14px 32px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    box-shadow: 0 2px 16px rgba(67,160,71,0.12);
+}
+
+.quiz-card {
+    background: var(--card-bg);
+    border-radius: 14px;
+    box-shadow: var(--card-shadow);
+    padding: 36px 32px;
+    margin-bottom: 32px;
+    border: 1px solid var(--border);
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.quiz-question {
+    font-size: 1.18rem;
+    font-weight: 600;
+    margin-bottom: 18px;
+}
+
+.quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 24px;
+}
+
+.quiz-option-btn {
+    background: var(--input-bg);
+    color: var(--text);
+    border: 1.5px solid var(--primary);
+    border-radius: 8px;
+    padding: 12px 18px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    font-weight: 500;
+}
+
+.quiz-option-btn.selected, .quiz-option-btn:hover {
+    background: var(--primary);
+    color: #fff;
+}
+
+.quiz-result {
+    text-align: center;
+    font-size: 1.23rem;
+    font-weight: 700;
+    margin-top: 24px;
+    color: var(--accent);
+}
+
+.quiz-restart-btn {
+    margin-top: 24px;
+    background: var(--primary-dark);
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+
+.vacancy-form {
+    background: var(--card-bg, #fff);
+    border-radius: 12px;
+    box-shadow: 0 2px 16px rgba(25,118,210,0.07);
+    padding: 18px 22px;
+    margin-bottom: 28px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.vacancy-form label {
+    font-size: 1rem;
+    color: var(--text);
+    margin-bottom: 2px;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.vacancy-form input,
+.vacancy-form select,
+.vacancy-form textarea {
+    margin-bottom: 8px;
+    width: 100%;
+}
+
+.vacancy-form textarea {
+    min-height: 60px;
+    resize: vertical;
+}
+
+.vacancy-form button[type="submit"] {
+    margin-top: 10px;
+    align-self: flex-end;
+    background: var(--primary);
+    color: #fff;
+    font-weight: 600;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-size: 1.05rem;
+}
